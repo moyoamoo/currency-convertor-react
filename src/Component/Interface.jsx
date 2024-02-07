@@ -5,7 +5,13 @@ class Interface extends Component {
   state = {};
 
   render() {
-    const { currency, getUserValue, getUserCurrency, conversion, calculateConversion} = this.props;
+    const {
+      currency,
+      getUserValue,
+      getUserCurrency,
+      conversion,
+      calculateConversion,
+    } = this.props;
     return (
       <>
         <div className="container">
@@ -15,7 +21,8 @@ class Interface extends Component {
             <input type="number" name="inputCurrency" onInput={getUserValue} />
           </div>
           <Select currency={currency} getUserCurrency={getUserCurrency} />
-          <button onClick={()=>calculateConversion()}>Calculate</button>
+          <button onClick={() => calculateConversion()}>Calculate</button>
+          {conversion && <p>{Math.round(conversion.value)}</p>}
         </div>
       </>
     );
