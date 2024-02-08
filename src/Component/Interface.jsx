@@ -4,7 +4,10 @@ import Select from "./Select";
 class Interface extends Component {
   state = {};
 
+  
+ 
   render() {
+    console.log(currencyCodes)
     const {
       currency,
       getUserValue,
@@ -12,6 +15,7 @@ class Interface extends Component {
       conversion,
       calculateConversion,
     } = this.props;
+
     return (
       <>
         <div className="container">
@@ -22,7 +26,7 @@ class Interface extends Component {
           </div>
           <Select currency={currency} getUserCurrency={getUserCurrency} />
           <button onClick={() => calculateConversion()}>Calculate</button>
-          {conversion && <p>{Math.round(conversion.value)}</p>}
+          <p>{conversion && Math.round(conversion.value)}</p>
         </div>
       </>
     );

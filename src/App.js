@@ -34,17 +34,16 @@ class App extends Component {
     const userValue = { ...this.state.userValue };
     const currency = { ...this.state.currency };
     const conversion = { ...this.state.conversion };
-    console.log(this.state)
-   
+    console.log(this.state);
 
     for (let i = 0; i < Object.keys(currency.rates).length; i++) {
-      if (Object.keys(currency.rates)[i] === userCurrency.currency){
-        conversion["value"] = Object.values(currency.rates)[i] * userValue.value;
+      if (Object.keys(currency.rates)[i] === userCurrency.currency) {
+        conversion["value"] =
+          Object.values(currency.rates)[i] * userValue.value;
       }
     }
 
-    console.log(conversion.value)
- 
+    this.setState({ conversion });
   };
 
   render() {
